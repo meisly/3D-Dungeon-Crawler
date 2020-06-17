@@ -6,18 +6,18 @@
 #include "SDL.h"
 #include <iostream>
 
-using namespace std;
 
 class Map {
  public:
+  enum tiles;
   Map(int width, int height);
 
   void Update();
-  wstring _string;
+  std::wstring _string;
   int _width;
   int _height;
  private:
-  
+  void readMapFromFile(std::string file);
 
 };
 

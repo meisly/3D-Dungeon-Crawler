@@ -1,9 +1,11 @@
 #include "map.h"
 #include <cmath>
 #include <iostream>
+#include <fstream>
 
 	// Create Map of world space # = wall block, . = space
   Map::Map(int width, int height)  : _width(width), _height(height){
+    // default map
     _string += L"#########################.......";
     _string += L"#..............................#";
     _string += L"#..............................#";
@@ -36,4 +38,9 @@
     _string += L"#..............................#";
     _string += L"#..............................#";
     _string += L"################################";
+
+    readMapFromFile();
   }
+void readMapFromFile(std::string file){
+
+}
