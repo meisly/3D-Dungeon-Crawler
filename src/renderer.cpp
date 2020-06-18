@@ -47,7 +47,7 @@ Renderer::~Renderer()
   SDL_Quit();
 }
 
-void Renderer::Render(Tiles *screen)
+void Renderer::Render(Tiles *screen, Map *map, Player *player)
 {
   SDL_Rect block;
   block.w = screen_width / grid_width;
@@ -63,25 +63,25 @@ void Renderer::Render(Tiles *screen)
     int y = (int)floor(i / grid_width);
     SDL_Color color;
     Tiles currentTile = screen[i];
-    
+
     switch (currentTile)
     {
     case wall1:
-      color.r = 0xf2;
-      color.g = 0xf2;
-      color.b = 0xf2;
-      color.a = 0xFF;
-      break;
-    case wall2:
       color.r = 0xd8;
       color.g = 0xd8;
       color.b = 0xd8;
       color.a = 0xFF;
       break;
-    case wall3:
+    case wall2:
       color.r = 0xb2;
       color.g = 0xb2;
       color.b = 0xb2;
+      color.a = 0xFF;
+      break;
+    case wall3:
+      color.r = 0x80;
+      color.g = 0x80;
+      color.b = 0x80;
       color.a = 0xFF;
       break;
     case wall4:
@@ -140,15 +140,41 @@ void Renderer::Render(Tiles *screen)
     if (1 == 2)
     {
       SDL_RenderCopy(sdl_renderer, _wall, NULL, &block);
-    }else
+    }
+    else
     {
       SDL_SetRenderDrawColor(sdl_renderer, color.r, color.g, color.b, color.a);
       SDL_RenderFillRect(sdl_renderer, &block);
     }
-
-
   }
   // End Render Player View
+
+  //Render Screen Map
+  for (int nx = 0; nx < map->getWidth(); nx++)
+    for (int ny = 0; ny < map->getWidth(); ny++)
+    {
+      block.w = 3;
+      block.h = 3;
+      block.x = (nx * block.w) + 1;
+      block.y = (ny *block.h) + 1 ;
+      if(map->getString()[ny * map->getWidth() + nx] == '#'){
+        SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0x88);
+        SDL_RenderFillRect(sdl_renderer, &block);
+      }else 
+      {
+        SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x00, 0x00, 0x88);
+        SDL_RenderFillRect(sdl_renderer, &block);
+      }
+      if( ny == (int)player->player_x && nx == (int)player->player_y)
+      {
+        block.w = 2;
+        block.h = 2;
+        block.x = (nx * 3) + 1;
+        block.y = (ny * 3) + 1 ;
+        SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0x88);
+        SDL_RenderFillRect(sdl_renderer, &block);
+      }
+    }
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);

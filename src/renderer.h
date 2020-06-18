@@ -13,7 +13,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render( Tiles *screen);
+  void Render( Tiles *screen, Map *map, Player *player);
   void UpdateWindowTitle(int score, int fps, Player player);
   
  private:

@@ -11,11 +11,11 @@ class Player {
  public:
   
 
-  Player(int grid_width, int grid_height)
-      : grid_width(grid_width),
-        grid_height(grid_height),
-        player_x(grid_width / 2),
-        player_y(grid_height / 2) {}
+  Player(int map_width, int map_height)
+      : map_width(map_width),
+        map_height(map_height),
+        player_x(map_width / 2),
+        player_y(map_height / 2) {}
   void Update();
 
 
@@ -32,8 +32,8 @@ class Player {
  private:
   void UpdatePosition();
   void UpdateView();
-  int grid_width;
-  int grid_height;
+  int map_width;
+  int map_height;
   
 };
 

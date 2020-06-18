@@ -15,9 +15,14 @@ void Player::Update() {
 
 void Player::UpdatePosition() {
     // Wrap the Snake around to the beginning if going off of the screen.
-  player_x = fmod(player_x + grid_width, grid_width);
-			
-  player_y = fmod(player_y + grid_height, grid_height);
+  if(player_x > map_width)
+    player_x = map_width;
+  if(player_x < 0)
+    player_x = 0;
+  if(player_y > map_height)
+    player_y = map_height;
+  if(player_y < 0)
+    player_y = 0;
 }
 void Player::UpdateView() {
 

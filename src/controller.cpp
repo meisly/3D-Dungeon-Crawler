@@ -7,11 +7,11 @@ void Controller::SetMap(Map &m){
   map = &m;
 }
 void Controller::ChangeDirectionCW(Player &player, Uint32 duration) const {
-  player.direction += (player.speed * 0.25f) * duration;
+  player.direction += (player.speed * 0.1f) * duration;
   return;
 }
 void Controller::ChangeDirectionCCW(Player &player, Uint32 duration) const {
-  player.direction -= (player.speed * 0.25f) * duration;
+  player.direction -= (player.speed * 0.1f) * duration;
   return;
 }
 void Controller::MoveForward(Player &player, Uint32 duration) const {

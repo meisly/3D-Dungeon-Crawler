@@ -9,8 +9,9 @@ Game::Game(const std::size_t screen_width, const std::size_t screen_height, std:
       screen_width(screen_width),
       grid_height(grid_height),
       grid_width(grid_width),
-      player((int)grid_width, (int)grid_height),
-      map((int)grid_width, (int)grid_height),
+      max_depth(grid_height),
+      player((int)32, (int)32),
+      map(32,32),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width)),
       random_h(0, static_cast<int>(grid_height))
@@ -121,11 +122,11 @@ void Game::Run(Controller &controller, Renderer &renderer,
 
       // Shader walls based on distance
       Tiles nShade = black;
-      if (fDistanceToWall <= max_depth / 4.0f)
+      if (fDistanceToWall <= max_depth / 8.0f)
         nShade = wall1; // Very close
-      else if (fDistanceToWall < max_depth / 3.0f)
+      else if (fDistanceToWall < max_depth / 6.0f)
         nShade = wall2;
-      else if (fDistanceToWall < max_depth / 2.0f)
+      else if (fDistanceToWall < max_depth / 4.0f)
         nShade = wall3;
       else if (fDistanceToWall < max_depth)
         nShade = wall4;
@@ -146,10 +147,10 @@ void Game::Run(Controller &controller, Renderer &renderer,
         {
           // Shade floor
           float b = 1.0f - (((float)y - bufHeight / 2.0f) / ((float)bufHeight / 2.0f));
-          if (b < 0.95)
+          if (b < 0.90)
             nShade = ground1;
-          // else if (b < 0.8)	nShade = ground2;
-          // else if (b < 0.9)	nShade = ground3;
+          else if (b < 0.8)	nShade = ground2;
+          else if (b < 0.9)	nShade = ground3;
           else if (b < 1.0)
             nShade = ground4;
           else
@@ -159,7 +160,7 @@ void Game::Run(Controller &controller, Renderer &renderer,
       }
     }
 
-    renderer.Render(screen);
+    renderer.Render(screen, &map, &player);
 
     frame_end = SDL_GetTicks();
 
