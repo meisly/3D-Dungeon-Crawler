@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "SDL.h"
+// #include "SDL_image.h"
 #include "player.h"
 #include "map.h"
 
@@ -12,12 +13,14 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render( wchar_t *screen);
+  void Render( Tiles *screen);
   void UpdateWindowTitle(int score, int fps, Player player);
   
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;
+  SDL_Texture* _grass;
+  SDL_Texture* _wall;
 
   const std::size_t screen_width;
   const std::size_t screen_height;

@@ -16,3 +16,5 @@ add_executable(DungeonCrawler src/main.cpp src/game.cpp src/controller.cpp src/r
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
 target_link_libraries(DungeonCrawler ${SDL2_LIBRARIES})
 target_compile_options(DungeonCrawler PRIVATE -g)
+
+

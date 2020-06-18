@@ -6,8 +6,11 @@
 class Controller {
  public:
   void HandleInput(bool &running, Player &snake, Uint32 duration) const;
+  void SetMap(Map &map);
 
  private:
+  
+  Map* map;
   void ChangeDirectionCW(Player &snake, Uint32 duration ) const;
   void ChangeDirectionCCW(Player &snake, Uint32 duration ) const;
 

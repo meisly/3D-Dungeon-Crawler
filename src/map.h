@@ -6,19 +6,24 @@
 #include "SDL.h"
 #include <iostream>
 
+enum Tiles { ground1, ground2, ground3, ground4, wall1, wall2, wall3, wall4, ceil1, ceil2, black};
 
-class Map {
- public:
-  enum tiles;
-  Map(int width, int height);
+class Map
+{
+public:
+    Map(int width, int height);
+    Tiles tiles;
 
-  void Update();
-  std::wstring _string;
-  int _width;
-  int _height;
- private:
-  void readMapFromFile(std::string file);
+    void Update();
+    int getWidth();
+    int getHeight();
+    std::string getString();
 
+private:
+    std::string _string;
+    int _width;
+    int _height;
+    void readMapFromFile(std::string file);
 };
 
 #endif

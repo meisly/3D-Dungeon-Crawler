@@ -21,12 +21,12 @@ class Player {
 
   float direction{0.0f};
 
-  float speed{0.5f};
+  float speed{0.1f};
   
   bool alive{true};
   float player_x;
   float player_y;
-  float FOV;
+  float FOV{0.785f};
 
 
  private:

@@ -3,44 +3,42 @@
 #include <iostream>
 #include <fstream>
 
-	// Create Map of world space # = wall block, . = space
-  Map::Map(int width, int height)  : _width(width), _height(height){
-    // default map
-    _string += L"#########################.......";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"#..............................#";
-    _string += L"################################";
+Map::Map(int width, int height) : _width(width), _height(height)
+{
+  readMapFromFile("/home/workspace/3D-Dungeon-Crawler/src/maps/map1.txt");
+}
 
-    readMapFromFile();
+int Map::getWidth()
+{
+  return _width;
+}
+
+int Map::getHeight()
+{
+  return _height;
+}
+
+std::string Map::getString()
+{
+  return _string;
+}
+
+void Map::readMapFromFile(std::string filepath)
+{
+  _string = "";
+  std::ifstream my_file;
+  my_file.open(filepath);
+  if (my_file)
+  {
+    std::string line;
+    while (getline(my_file, line))
+    {
+      _string += line;
+    }
+    my_file.close();
   }
-void readMapFromFile(std::string file){
-
+  else
+  {
+    std::cout << "file not opened\n";
+  }
 }

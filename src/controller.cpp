@@ -3,28 +3,35 @@
 #include "SDL.h"
 #include "player.h"
 
+void Controller::SetMap(Map &m){
+  map = &m;
+}
 void Controller::ChangeDirectionCW(Player &player, Uint32 duration) const {
-  player.direction += (player.speed * 0.75f);
+  player.direction += (player.speed * 0.25f) * duration;
   return;
 }
 void Controller::ChangeDirectionCCW(Player &player, Uint32 duration) const {
-  player.direction -= (player.speed * 0.75f);
+  player.direction -= (player.speed * 0.25f) * duration;
   return;
 }
 void Controller::MoveForward(Player &player, Uint32 duration) const {
-  player.player_x += sinf(player.direction) * player.speed;
-	player.player_y += cosf(player.direction) * player.speed;
-  // if (map.c_str()[(int)fPlayerX * nMapWidth + (int)fPlayerY] == '#')
-  // {
-  //   fPlayerX -= sinf(fPlayerA) * fSpeed * fElapsedTime;;
-  //   fPlayerY -= cosf(fPlayerA) * fSpeed * fElapsedTime;;
-  // }			
+  player.player_x += sinf(player.direction) * player.speed * duration; 
+	player.player_y += cosf(player.direction) * player.speed * duration;
+  if (map->getString().c_str()[(int)player.player_x * map->getWidth() + (int)player.player_y] == '#')
+    {
+      player.player_x -= sinf(player.direction) * player.speed * duration;
+      player.player_y -= cosf(player.direction) * player.speed * duration;
+    }	
   return;
 }
 void Controller::MoveBackward(Player &player, Uint32 duration) const {
-  player.player_x -= sinf(player.direction) * player.speed;
-	player.player_y -= cosf(player.direction) * player.speed;
-			
+  player.player_x -= sinf(player.direction) * player.speed * duration;
+	player.player_y -= cosf(player.direction) * player.speed * duration;
+	if (map->getString().c_str()[(int)player.player_x * map->getWidth() + (int)player.player_y] == '#')
+  {
+    player.player_x += sinf(player.direction) * player.speed * duration;
+    player.player_y += cosf(player.direction) * player.speed * duration;
+  }	
   return;
 }
 void Controller::HandleInput(bool &running, Player &player, Uint32 duration) const {
