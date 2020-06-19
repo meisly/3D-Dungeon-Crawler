@@ -11,10 +11,7 @@ Game::Game(const std::size_t screen_width, const std::size_t screen_height, std:
       grid_width(grid_width),
       max_depth(grid_height),
       player((int)32, (int)32),
-      map(32,32),
-      engine(dev()),
-      random_w(0, static_cast<int>(grid_width)),
-      random_h(0, static_cast<int>(grid_height))
+      map(32,32)
 {
 }
 
@@ -172,7 +169,7 @@ void Game::Run(Controller &controller, Renderer &renderer,
     // After every second, update the window title.
     if (frame_end - title_timestamp >= 1000)
     {
-      renderer.UpdateWindowTitle(score, frame_count, player);
+      renderer.UpdateWindowTitle(frame_count, player);
       frame_count = 0;
       title_timestamp = frame_end;
     }
@@ -194,8 +191,5 @@ void Game::Update()
 
   player.Update();
 
-  int new_x = static_cast<int>(player.player_x);
-  int new_y = static_cast<int>(player.player_y);
 }
 
-int Game::GetScore() const { return score; }

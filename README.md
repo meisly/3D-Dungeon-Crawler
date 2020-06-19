@@ -40,7 +40,49 @@ You can move around the world using the keyboard.
 
 
 ## Credit
-I got the idea from this from a video by [Javidx9](https://www.github.com/onelonecoder) where he developed a simple first person shooter that renders/plays in the command line.  I learned about ray casting from that video and used his ray casting [code from that project](https://github.com/OneLoneCoder/CommandLineFPS) as a starting place for this.
+I got the idea from this from a video by [Javidx9](https://www.github.com/onelonecoder) where he developed a simple first person shooter that renders/plays in the command line.  I learned about ray casting from that video and used his ray casting [code from that project](https://github.com/OneLoneCoder/CommandLineFPS) as a starting place for this.  Additionally, I used the CPPND-Snake as an example for creating the game loop and file structure. 
 
 ## Author
 Tierra Farris
+
+
+# Assignment Info
+
+## Optional Criteria 
+
+## Loops, Functions, I/O
+|  CRITERIA 	| MEETS SPECIFICATIONS  	|   LOCATION/EXAMPLE	|
+|---	        |---	                    |---	                |
+|The project demonstrates an understanding of C++ functions and control structures.   |A variety of control structures are used in the project. |The best example of this is in the Controller::HandleInput function. | 
+| 	          |The project code is clearly organized into functions.|Yes|
+|The project reads data from a file and process the data, or the program writes data to a file.| The project reads data from an external file or writes data to a file as part of the necessary operation of the program.|The game map is read from a file|
+|The project accepts user input and processes the input.|The project accepts input from a user as part of the necessary operation of the program.|Player movement is based on user input|
+
+## Object Oriented Programming
+|  CRITERIA 	| MEETS SPECIFICATIONS  	|   LOCATION/EXAMPLE	|
+|---	|---	|---	|
+|  The project uses Object Oriented Programming techniques.	|  The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks. 	|   Yes, this project consists of multiple classes which use methods to perform tasks.	|
+|   Classes use appropriate access specifiers for class members.	|   All class data members are explicitly specified as public, protected, or private.	|   Yes	|
+|  Class constructors utilize member initialization lists. 	|  All class members that are set to argument values are initialized through member initialization lists. 	|  Yes, good examples of this include the player instance, map instance and game instance initialization.  	|
+|Classes encapsulate behavior.|Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.| Yes, the map class is a good example of this|
+
+
+## Memory Management
+
+|  CRITERIA 	| MEETS SPECIFICATIONS  	|   LOCATION/EXAMPLE	|
+|---	|---	|---	|
+|   The project makes use of references in function declarations.	|   	At least two variables are defined as references, or two functions use pass-by-reference in the project code.| Yes, functions use pass-by-reference in the game and controller classes.   	|
+|   The project uses destructors appropriately.	|  At least one class that uses unmanaged dynamically allocated memory, along with any class that otherwise needs to modify state upon the termination of an object, uses a destructor. 	|   Yes, the best example of this is in the renderer class.	|
+|   The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.	|  The project follows the Resource Acquisition Is Initialization pattern where appropriate, by allocating objects at compile-time, initializing objects when they are declared, and utilizing scope to ensure their automatic destruction. 	|   Yes	|
+
+
+
+
+
+
+
+
+
+
+
+

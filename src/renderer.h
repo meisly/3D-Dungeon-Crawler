@@ -14,7 +14,7 @@ class Renderer {
   ~Renderer();
 
   void Render( Tiles *screen, Map *map, Player *player);
-  void UpdateWindowTitle(int score, int fps, Player player);
+  void UpdateWindowTitle(int fps, Player player);
   
  private:
   SDL_Window *sdl_window;

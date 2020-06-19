@@ -180,7 +180,7 @@ void Renderer::Render(Tiles *screen, Map *map, Player *player)
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::UpdateWindowTitle(int score, int fps, Player player)
+void Renderer::UpdateWindowTitle(int fps, Player player)
 {
   std::string title{" FPS: " + std::to_string(fps) + "  X: " + std::to_string((int)player.player_x) + "  Y: " + std::to_string((int)player.player_y) + "  Angle: " + std::to_string((int)player.direction)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
