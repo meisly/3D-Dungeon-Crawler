@@ -1,5 +1,8 @@
 # 3D Dungeon Crawler
 Walk around in this 3-D world explorer.  You can see your characters position in the small, on screen map in the upper left corner.
+![Preview File](chrome_slhM9vXgKk.png).
+
+![Preview gif](G03LAop0Jv.gif)
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
