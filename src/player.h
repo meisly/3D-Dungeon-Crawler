@@ -21,7 +21,7 @@ class Player {
 
   float direction{0.0f};
 
-  float speed{0.1f};
+  float speed{0.01f};
   
   bool alive{true};
   float player_x;

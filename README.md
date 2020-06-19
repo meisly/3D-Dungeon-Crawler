@@ -1,4 +1,5 @@
 # 3D Dungeon Crawler
+Walk around in this 3-D world explorer.  You can see your characters position in the small, on screen map in the upper left corner.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -22,15 +23,15 @@
 3. Compile: `cmake .. && make`
 4. Run it: `./DungeonCrawler`.
 
-## Play it
+## Explore
 
-Currently you can walk around and explore the world.  
-### Controls
+Walk around the world and explore using keyboard controls.
+#### Controls
 You can move around the world using the keyboard.  
-  Forward = Up arrow or W
-  Backward = Down arrow or S
-  Turn Right = Right arrow or D
-  Turn Left = Left arrow or A
+  * Forward = `Up arrow` or `W`
+  * Backward = `Down arrow` or `S`
+  * Turn Right = `Right arrow` or `D`
+  * Turn Left = `Left arrow` or `A`
 
 ## Future Modifications
  1. Add more interesting world features like trees and boulders
@@ -39,6 +40,7 @@ You can move around the world using the keyboard.
 
 
 ## Credit
-The idea for this and some of ray casting code came from the CommandLineFPS by Javidx9.
-	https://www.github.com/onelonecoder
+I got the idea from this from a video by [Javidx9](https://www.github.com/onelonecoder) where he developed a simple first person shooter that renders/plays in the command line.  I learned about ray casting from that video and used his ray casting [code from that project](https://github.com/OneLoneCoder/CommandLineFPS) as a starting place for this.
 
+## Author
+Tierra Farris

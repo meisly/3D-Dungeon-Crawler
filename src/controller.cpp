@@ -61,7 +61,15 @@ void Controller::HandleInput(bool &running, Player &player, Uint32 duration) con
           ChangeDirectionCCW(player, duration);
           break;
 
+        case SDLK_LEFT:
+          ChangeDirectionCCW(player, duration);
+          break;
+
         case SDLK_d:
+          ChangeDirectionCW(player, duration);
+          break;
+
+        case SDLK_RIGHT:
           ChangeDirectionCW(player, duration);
           break;
       }
